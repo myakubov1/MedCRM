@@ -1,23 +1,20 @@
-import jwt from 'jsonwebtoken';
+const jwt = require('jsonwebtoken');
 
-class AuthMiddleware {
-  getPayload(req, res, next) {
-    if (req.method === 'OPTIONS') {
-      next();
-    }
-    try {
-      const token = req.headers.authorization.split(' ')[1];
-      if (!token) {
-        return res.status(403).json({ message: 'User not authorized' });
-      }
-      const decodedData = jwt.verify(token, process.env.SECRET);
-      req.user = decodedData;
-      next();
-    } catch (e) {
-      console.log(e);
-      return res.status(403).json({ message: 'User not authorized' });
-    }
+module.exports = function (req, res, next) {
+  if (req.method === 'OPTIONS') {
+    next();
   }
-}
 
-export default new AuthMiddleware();
+  try {
+    const token = req.headers.authorization.split(' ')[1];
+    if (!token) {
+      return res.status(403).json({ message: 'Пользователь не авторизован' });
+    }
+    const decodedData = jwt.verify(token, process.env.SECRET);
+    req.user = decodedData;
+    next();
+  } catch (e) {
+    console.log(e);
+    return res.status(403).json({ message: 'Пользователь не авторизован' });
+  }
+};

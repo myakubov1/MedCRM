@@ -1,9 +1,9 @@
 /* eslint-disable import/extensions */
-import mongoose from 'mongoose';
-import express from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import router from './router.js';
+const mongoose = require('mongoose');
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const router = require('./router.js');
 
 const app = express();
 

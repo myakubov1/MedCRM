@@ -1,9 +1,9 @@
-import MessageService from './MessageService.js';
+const Message = require('./Message');
 
 class MessageController {
   async create(req, res) {
     try {
-      const message = await MessageService.create(req.body);
+      const message = await Message.create(req.body);
       res.json(message);
     } catch (e) {
       res.status(500).json(e);
@@ -12,8 +12,8 @@ class MessageController {
 
   async getAll(req, res) {
     try {
-      const messages = await MessageService.getAll();
-      return res.json(messages);
+      const messages = await Message.find();
+      return res.status(200).json(messages);
     } catch (e) {
       res.status(500).json(e);
     }
@@ -21,7 +21,8 @@ class MessageController {
 
   async getById(req, res) {
     try {
-      const message = await MessageService.getById(req.params.id);
+      const { id } = req.params;
+      const message = await Message.findById(id);
       return res.json(message);
     } catch (e) {
       res.status(500).json(e.message);
@@ -30,7 +31,8 @@ class MessageController {
 
   async update(req, res) {
     try {
-      const updatedMessage = await MessageService.update(req.body);
+      console.log(req.body);
+      const updatedMessage = await Message.findByIdAndUpdate(req.body._id, req.body, { new: true });
       return res.json(updatedMessage);
     } catch (e) {
       res.status(500).json(e.message);
@@ -40,11 +42,11 @@ class MessageController {
   async delete(req, res) {
     try {
       const { id } = req.params;
-      const message = await MessageService.delete(id);
+      const message = await Message.findByIdAndDelete(id);
       res.status(200).json(message);
     } catch (e) {
       res.status(500).json(e);
     }
   }
 }
-export default new MessageController();
+module.exports = new MessageController();
