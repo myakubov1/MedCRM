@@ -12,11 +12,7 @@ function Messages() {
 
   useEffect(() => {
     const loadAsyncMessages = async () => {
-      await axios.get('http://localhost:3001/api/messages', {
-        headers: {
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MDhlNjNhMDZiODUxZDI4NjU1ODlkOCIsInJvbGVzIjpbIkFETUlOIl0sImlhdCI6MTY3ODM5MTA1MSwiZXhwIjoxNjc4NDc3NDUxfQ.20cNkuzzJEc5qIwjoCh9q1Ug_CsiW25EHba1HPqVSME',
-        },
-      })
+      await axios.get('http://localhost:3001/api/messages')
         .then((response) => {
           setMessages(response.data);
           console.log(response.data);

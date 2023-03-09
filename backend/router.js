@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const { check } = require('express-validator');
+const cors = require('cors');
 const MessageController = require('./messages/MessageController');
 const AuthController = require('./users/AuthController');
 const AuthMiddleware = require('./middleware/AuthMiddleware');
 const RoleMiddleware = require('./middleware/RoleMiddleware');
+
 // messages
 router.post('/messages', MessageController.create);
 router.get('/messages', MessageController.getAll);
