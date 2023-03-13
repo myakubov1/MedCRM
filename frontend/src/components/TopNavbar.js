@@ -1,7 +1,4 @@
 /* eslint-disable no-shadow */
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
 function TopNavbar() {
   return (
     <nav className="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
@@ -28,6 +25,7 @@ function SearchBar() {
     </form>
   );
 }
+
 function MessagesBar() {
   return (
     <div className="nav-item dropdown">

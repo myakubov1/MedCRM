@@ -1,19 +1,15 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable react/button-has-type */
-import TopNavbar from './TopNavbar';
-import Total from './Total';
-import Messages from './Messages';
+import TotalWidget from '../TotalWidget';
+import Messages from '../Messages';
 
-function Content() {
+function Dashboard() {
   return (
-    <div className="content">
-      <TopNavbar />
+    <>
       <div className="container-fluid pt-4 px-4">
         <div className="row g-4">
-          <Total name="Total sale" summary="1234" icon="fa-chart-bar" />
-          <Total name="Today Revenue" summary="5678" icon="fa-chart-area" />
-          <Total name="Total Revenue" summary="9012" icon="fa-chart-pie" />
-          <Total name="Today Sale" summary="3456" icon="fa-chart-line" />
+          <TotalWidget name="Total sale" summary="1234" icon="fa-chart-bar" />
+          <TotalWidget name="Today Revenue" summary="5678" icon="fa-chart-area" />
+          <TotalWidget name="Total Revenue" summary="9012" icon="fa-chart-pie" />
+          <TotalWidget name="Today Sale" summary="3456" icon="fa-chart-line" />
         </div>
       </div>
 
@@ -23,7 +19,7 @@ function Content() {
             <div className="bg-light text-center rounded p-4">
               <div className="d-flex align-items-center justify-content-between mb-4">
                 <h6 className="mb-0">Worldwide Sales</h6>
-                <a href="">Show All</a>
+                <a href="#">Show All</a>
               </div>
               <canvas id="worldwide-sales" />
             </div>
@@ -34,7 +30,7 @@ function Content() {
                 <h6 className="mb-0">Salse & Revenue</h6>
                 <a href="">Show All</a>
               </div>
-              <canvas id="salse-revenue" />
+              <canvas id="sales-revenue" />
             </div>
           </div>
         </div>
@@ -43,7 +39,7 @@ function Content() {
       <div className="container-fluid pt-4 px-4">
         <div className="bg-light text-center rounded p-4">
           <div className="d-flex align-items-center justify-content-between mb-4">
-            <h6 className="mb-0">Recent Salse</h6>
+            <h6 className="mb-0">Recent Sales</h6>
             <a href="">Show All</a>
           </div>
           <div className="table-responsive">
@@ -198,8 +194,9 @@ function Content() {
           </div>
         </div>
       </div>
+    </>
 
-    </div>
   );
 }
-export default Content;
+
+export default Dashboard;

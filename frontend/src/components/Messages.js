@@ -42,9 +42,7 @@ function Messages() {
   );
 }
 
-function Message({
-  author, content, date,
-}) {
+function Message({ author, content, date }) {
   return (
     <div className="d-flex align-items-center border-bottom py-3">
       <img className="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style={{ width: '40px', height: '40px' }} />

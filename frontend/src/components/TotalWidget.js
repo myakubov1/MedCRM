@@ -1,4 +1,4 @@
-function Total({ name, summary, icon }) {
+function TotalWidget({ name, summary, icon }) {
   return (
     <div className="col-sm-6 col-xl-3">
       <div className="bg-light rounded d-flex align-items-center justify-content-between p-4">
@@ -11,4 +11,4 @@ function Total({ name, summary, icon }) {
     </div>
   );
 }
-export default Total;
+export default TotalWidget;

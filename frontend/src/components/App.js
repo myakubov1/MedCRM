@@ -1,22 +1,19 @@
 import '../App.css';
-import LeftSidebar from './LeftSidebar';
-import Content from './Content';
-import SignIn from './SignIn';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './Layout';
+import Dashboard from './pages/Dashboard';
+import TestPage from './pages/TestPage';
 
 function App() {
-  const authorized = (
-    <div className="container-fluid position-relative bg-white d-flex p-0">
-      <LeftSidebar />
-      <Content />
-    </div>
-  );
-  const unauthorized = (
-    <SignIn />
-  );
   return (
-    <div>
-      {unauthorized}
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="testpage" element={<TestPage />} />
+        <Route path="*" element={<p>Theres nothing here: 404!</p>} />
+      </Routes>
+    </Layout>
   );
 }
 
