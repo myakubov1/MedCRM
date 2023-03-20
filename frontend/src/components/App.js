@@ -1,19 +1,18 @@
 import '../App.css';
 import { Routes, Route } from 'react-router-dom';
-import Layout from './Layout';
 import Dashboard from './pages/Dashboard';
 import TestPage from './pages/TestPage';
+import LogIn from './pages/LogIn';
+import Layout from './Layout';
 
 function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="testpage" element={<TestPage />} />
-        <Route path="*" element={<p>Theres nothing here: 404!</p>} />
-      </Routes>
-    </Layout>
+    <Routes>
+      <Route path="*" element={<Layout><Dashboard /></Layout>} />
+      <Route path="login" element={<LogIn />} />
+      <Route path="dashboard" element={<Layout><Dashboard /></Layout>} />
+      <Route path="testpage" element={<Layout><TestPage /></Layout>} />
+    </Routes>
   );
 }
 

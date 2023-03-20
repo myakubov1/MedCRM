@@ -31,7 +31,6 @@ class MessageController {
 
   async update(req, res) {
     try {
-      console.log(req.body);
       const updatedMessage = await Message.findByIdAndUpdate(req.body._id, req.body, { new: true });
       return res.json(updatedMessage);
     } catch (e) {

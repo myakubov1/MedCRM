@@ -8,11 +8,14 @@ import '../App.css';
 function Layout({ children }) {
   const [isActive, setActive] = useState(false);
   return (
-    <div className="content">
+    <>
       <LeftSidebar isActive={isActive} />
-      <TopNavbar />
-      {children}
-    </div>
+
+      <div className="content">
+        <TopNavbar />
+        {children}
+      </div>
+    </>
   );
 }
 

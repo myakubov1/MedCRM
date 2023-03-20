@@ -25,7 +25,6 @@ function SearchBar() {
     </form>
   );
 }
-
 function MessagesBar() {
   return (
     <div className="nav-item dropdown">
@@ -101,13 +100,11 @@ function ProfileBarUnlogged() {
   return (
     <div className="nav-item dropdown">
       <a href="#" className="nav-link" data-bs-toggle="dropdown">
-        <img className="rounded-circle me-lg-2" src="img/user.jpg" alt="" style={{ width: '40px', height: '40px' }} />
         <span className="d-none d-lg-inline-flex">Log In</span>
       </a>
     </div>
   );
 }
-
 function ProfileBarUser() {
   return (
     <div className="nav-item dropdown">

@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import MenuList from './Menu';
 
 function LeftSidebar() {
+  const [user, setUser] = useState();
   return (
     <div className="sidebar pb-3">
       <nav className="navbar bg-light navbar-light">
