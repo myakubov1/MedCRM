@@ -1,31 +1,13 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from 'react';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
-function LogIn() {
-  const [token, setToken] = useState('');
-  const [roles, setRoles] = useState('');
+function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const { login } = useAuth();
   const handleSubmit = async () => {
-    const data = {
-      username: username.toLowerCase(),
-      password,
-    };
-    await axios
-      .post('http://localhost:3001/api/login', data)
-      .then((response) => {
-        setToken(response.data.token);
-        setRoles(response.data.roles);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setUsername('');
-        setPassword('');
-      });
+    login({ username, password });
   };
 
   return (
@@ -36,9 +18,12 @@ function LogIn() {
             <div className="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
               <div className="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                 <div className="d-flex align-items-center justify-content-between mb-3">
-                  <a href="LogIn" className="">
+                  <Link to="/login" className="">
                     <h3 className="text-primary">MedCRM</h3>
-                  </a>
+                  </Link>
+                  <Link to="/dashboard" className="">
+                    <h3 className="text-primary">DSH</h3>
+                  </Link>
                   <h3>Sign In</h3>
                 </div>
                 <div className="form-floating mb-3">
@@ -79,4 +64,4 @@ function LogIn() {
   );
 }
 
-export default LogIn;
+export default Login;

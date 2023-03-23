@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function MenuList() {
   const [menuList, setMenuList] = useState(['Dashboard', 'Testpage']);
@@ -12,10 +13,10 @@ function MenuList() {
 function Menu({ href }) {
   return (
     <div className="navbar-nav w-100">
-      <a href={href} className="nav-item nav-link">
+      <Link to={`/${href.toLowerCase()}`} className="nav-item nav-link">
         <i className="fa fa-tachometer-alt me-2" />
         {href}
-      </a>
+      </Link>
     </div>
   );
 }

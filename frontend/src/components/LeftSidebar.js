@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import MenuList from './Menu';
 
 function LeftSidebar() {
@@ -6,12 +7,12 @@ function LeftSidebar() {
   return (
     <div className="sidebar pb-3">
       <nav className="navbar bg-light navbar-light">
-        <a href="/" className="navbar-brand mx-4 mb-3">
+        <Link to="/dashboard" className="navbar-brand mx-4 mb-3">
           <h3 className="text-primary">
             <i className="fa fa-hashtag me-2" />
             MedCRM
           </h3>
-        </a>
+        </Link>
         <div className="d-flex align-items-center ms-4 mb-4">
           <div className="position-relative">
             <img className="rounded-circle" src="img/user.jpg" alt="" style={{ width: '40px', height: '40px' }} />
