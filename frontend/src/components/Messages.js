@@ -15,11 +15,10 @@ function Messages() {
       await axios.get('http://localhost:3001/api/messages')
         .then((response) => {
           setMessages(response.data);
-          console.log(response.data);
         })
-        .catch((error) => {
-          setError(error);
-          console.log(error);
+        .catch((e) => {
+          setError(e);
+          console.log(e);
         })
         .finally(() => {
           setLoaded(true);

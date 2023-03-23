@@ -8,9 +8,9 @@ const UserContext = createContext();
 
 export function UserProvider({ children }) {
   const navigate = useNavigate();
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState(sessionStorage.getItem('token'));
   const [roles, setRoles] = useState('');
-
+  const [error, setError] = useState(null);
   const login = async ({ username, password }) => {
     const data = {
       username: username.toLowerCase(),
@@ -23,10 +23,10 @@ export function UserProvider({ children }) {
         setRoles(response.data.roles);
         sessionStorage.setItem('token', response.data.token);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((e) => {
+        console.log(e);
+        setError(e.response.data.message);
       });
-
     navigate('/dashboard');
   };
 
@@ -39,10 +39,11 @@ export function UserProvider({ children }) {
     () => ({
       token,
       roles,
+      error,
       login,
       logout,
     }),
-    [token, roles],
+    [token, roles, error],
   );
 
   return (

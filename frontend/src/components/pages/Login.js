@@ -5,11 +5,15 @@ import { useAuth } from '../../hooks/useAuth';
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth();
+  const { login, error } = useAuth();
   const handleSubmit = async () => {
     login({ username, password });
   };
-
+  const showError = () => (
+    <div className="alert alert-danger" role="alert">
+      {error}
+    </div>
+  );
   return (
     <div>
       <div className="container-xxl position-relative bg-white d-flex p-0">
@@ -47,6 +51,9 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <label htmlFor="floatingPassword">Password</label>
+                </div>
+                <div className={`${error ? '' : 'd-none'}`}>
+                  <label className="w-100 alert alert-danger">{error}</label>
                 </div>
                 <button
                   type="submit"
