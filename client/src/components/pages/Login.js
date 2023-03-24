@@ -25,9 +25,6 @@ function Login() {
                   <Link to="/login" className="">
                     <h3 className="text-primary">MedCRM</h3>
                   </Link>
-                  <Link to="/dashboard" className="">
-                    <h3 className="text-primary">DSH</h3>
-                  </Link>
                   <h3>Sign In</h3>
                 </div>
                 <div className="form-floating mb-3">

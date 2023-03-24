@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MenuList from './Menu';
-import avatar from '../assets/avatar.svg'
+import avatar from '../../assets/avatar.svg';
 
 function LeftSidebar() {
   return (

@@ -27,7 +27,7 @@ function Clients() {
   }, []);
 
   return (
-        <div className="container-fluid pt-4 px-4">
+        <div className="container-fluid py-4 px-4">
             <div className="bg-light text-center rounded p-4">
                 <div className="d-flex align-items-center justify-content-between mb-4">
                     <h6 className="mb-0">Clients</h6>

@@ -1,17 +1,17 @@
 /* eslint-disable no-shadow */
-import {useAuth} from "../hooks/useAuth";
+import { useAuth } from '../../hooks/useAuth';
 
 function TopNavbar() {
-    const { logout } = useAuth();
-    const handleLogout = async () => {
-        logout();
-    };
+  const { logout } = useAuth();
+  const handleLogout = async () => {
+    logout();
+  };
   return (
     <nav className="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-      <a href="#" className="navbar-brand d-flex d-lg-none me-4">
+      <a href="client/src/components/layout/TopNavbar#" className="navbar-brand d-flex d-lg-none me-4">
         <h2 className="text-primary mb-0"><i className="fa fa-hashtag" /></h2>
       </a>
-      <a href="#" className="sidebar-toggler flex-shrink-0">
+      <a href="client/src/components/layout/TopNavbar#" className="sidebar-toggler flex-shrink-0">
         <i className="fa fa-bars" />
       </a>
       <SearchBar />
@@ -102,7 +102,7 @@ function NotificationBar() {
     </div>
   );
 }
-function ProfileBarUnlogged({logout}) {
+function ProfileBarUnlogged({ logout }) {
   return (
     <div className="nav-item dropdown">
       <a href='#' onClick={logout} className="nav-link" >

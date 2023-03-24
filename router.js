@@ -2,10 +2,9 @@ const router = require('express').Router();
 const { check } = require('express-validator');
 const MessageController = require('./api/messages/MessageController');
 const AuthController = require('./api/users/AuthController');
-const ClientController = require('./api/clients/ClientController')
+const ClientController = require('./api/clients/ClientController');
 // const AuthMiddleware = require('./middleware/AuthMiddleware');
 const RoleMiddleware = require('./middleware/RoleMiddleware');
-
 // messages
 router.post('/messages', MessageController.create);
 router.get('/messages', MessageController.getAll);
@@ -25,8 +24,8 @@ router.get('/users', RoleMiddleware(['ADMIN']), AuthController.getUsers);
 router.post('/clients', ClientController.create);
 router.get('/clients', ClientController.getAll);
 router.get('/clients/:id', ClientController.getById);
+router.get('/clients-p', ClientController.getWithPagination);
 router.put('/clients', ClientController.update);
 router.delete('/clients/:id', ClientController.delete);
-
 
 module.exports = router;

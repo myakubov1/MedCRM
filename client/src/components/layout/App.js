@@ -1,12 +1,11 @@
-import '../App.css';
+import '../../App.css';
 import { Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import TestPage from './pages/TestPage';
-import Login from './pages/Login';
+import Dashboard from '../pages/Dashboard';
+import TestPage from '../pages/TestPage';
+import Login from '../pages/Login';
 import Layout from './Layout';
-import PrivateRoute from '../middleware/PrivateRoute';
-import { useAuth } from '../hooks/useAuth';
-import Clients from "./pages/Clients";
+import PrivateRoute from '../../middleware/PrivateRoute';
+import Clients from '../pages/Clients';
 
 function App() {
   return (

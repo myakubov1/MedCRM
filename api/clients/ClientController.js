@@ -29,6 +29,28 @@ class ClientController {
     }
   }
 
+  async getWithPagination(req, res) {
+    // destructure page and limit and set default values
+    const { page = 1, limit = 10 } = req.query;
+
+    try {
+      const clients = await Client.find()
+        .limit(limit * 1)
+        .skip((page - 1) * limit)
+        .exec();
+
+      const count = await Client.countDocuments();
+
+      res.json({
+        clients,
+        totalPages: Math.ceil(count / limit),
+        currentPage: page,
+      });
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+
   async update(req, res) {
     try {
       const updatedClient = await Client.findByIdAndUpdate(req.body._id, req.body, { new: true });

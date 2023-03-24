@@ -5,7 +5,7 @@ function TotalWidget({ name, summary, icon }) {
         <i className={`fa fa-3x  text-primary ${icon}`} />
         <div className="ms-3">
           <p className="mb-2">{name}</p>
-          <h6 className="mb-0">{`$${summary}`}</h6>
+          <h6 className="mb-0">{summary}</h6>
         </div>
       </div>
     </div>
