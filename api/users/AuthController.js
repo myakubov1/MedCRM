@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
 const Role = require('./Role');
 const User = require('./User');
+
 const generateAccessToken = (id, roles) => {
   const payload = {
     id,

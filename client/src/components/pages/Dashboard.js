@@ -27,7 +27,7 @@ function Dashboard() {
           <div className="col-sm-12 col-xl-6">
             <div className="bg-light text-center rounded p-4">
               <div className="d-flex align-items-center justify-content-between mb-4">
-                <h6 className="mb-0">Salse & Revenue</h6>
+                <h6 className="mb-0">Sales & Revenue</h6>
                 <a href="">Show All</a>
               </div>
               <canvas id="sales-revenue" />
@@ -50,8 +50,7 @@ function Dashboard() {
                     <input className="form-check-input" type="checkbox" />
                   </th>
                   <th scope="col">Date</th>
-                  <th scope="col">Invoice</th>
-                  <th scope="col">Customer</th>
+                  <th scope="col">Client</th>
                   <th scope="col">Amount</th>
                   <th scope="col">Status</th>
                   <th scope="col">Action</th>
@@ -63,8 +62,7 @@ function Dashboard() {
                     <input className="form-check-input" type="checkbox" />
                   </td>
                   <td>01 Jan 2045</td>
-                  <td>INV-0123</td>
-                  <td>Jhon Doe</td>
+                  <td>John Doe</td>
                   <td>$123</td>
                   <td>Paid</td>
                   <td>
@@ -78,53 +76,7 @@ function Dashboard() {
                     <input className="form-check-input" type="checkbox" />
                   </td>
                   <td>01 Jan 2045</td>
-                  <td>INV-0123</td>
-                  <td>Jhon Doe</td>
-                  <td>$123</td>
-                  <td>Paid</td>
-                  <td>
-                    <a className="btn btn-sm btn-primary" href="">
-                      Detail
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input className="form-check-input" type="checkbox" />
-                  </td>
-                  <td>01 Jan 2045</td>
-                  <td>INV-0123</td>
-                  <td>Jhon Doe</td>
-                  <td>$123</td>
-                  <td>Paid</td>
-                  <td>
-                    <a className="btn btn-sm btn-primary" href="">
-                      Detail
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input className="form-check-input" type="checkbox" />
-                  </td>
-                  <td>01 Jan 2045</td>
-                  <td>INV-0123</td>
-                  <td>Jhon Doe</td>
-                  <td>$123</td>
-                  <td>Paid</td>
-                  <td>
-                    <a className="btn btn-sm btn-primary" href="">
-                      Detail
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input className="form-check-input" type="checkbox" />
-                  </td>
-                  <td>01 Jan 2045</td>
-                  <td>INV-0123</td>
-                  <td>Jhon Doe</td>
+                  <td>John Doe</td>
                   <td>$123</td>
                   <td>Paid</td>
                   <td>
@@ -141,7 +93,6 @@ function Dashboard() {
       <div className="container-fluid pt-4 px-4">
         <div className="row g-4">
           <Messages />
-
           <div className="col-sm-12 col-md-6 col-xl-4">
             <div className="h-100 bg-light rounded p-4">
               <div className="d-flex align-items-center justify-content-between mb-4">

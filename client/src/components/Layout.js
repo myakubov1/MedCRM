@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable react/button-has-type */
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import TopNavbar from './TopNavbar';

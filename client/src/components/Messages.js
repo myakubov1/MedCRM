@@ -3,6 +3,8 @@
 /* eslint-disable no-shadow */
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import avatar from '../assets/avatar.svg';
+import { ApiUrl } from '../api';
 
 function Messages() {
   const [messages, setMessages] = useState(null);
@@ -12,7 +14,7 @@ function Messages() {
 
   useEffect(() => {
     const loadAsyncMessages = async () => {
-      await axios.get('http://localhost:3001/api/messages')
+      await axios.get(`${ApiUrl}/messages`)
         .then((response) => {
           setMessages(response.data);
         })
@@ -44,7 +46,7 @@ function Messages() {
 function Message({ author, content, date }) {
   return (
     <div className="d-flex align-items-center border-bottom py-3">
-      <img className="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style={{ width: '40px', height: '40px' }} />
+      <img className="rounded-circle flex-shrink-0" src={avatar} alt="" style={{ width: '40px', height: '40px' }} />
       <div className="w-100 ms-3">
         <div className="d-flex w-100 justify-content-between">
           <h6 className="mb-0">{author}</h6>

@@ -3,6 +3,7 @@ import {
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { ApiUrl } from '../api';
 
 const UserContext = createContext();
 
@@ -17,7 +18,7 @@ export function UserProvider({ children }) {
       password,
     };
     await axios
-      .post('http://localhost:3001/api/login', data)
+      .post(`${ApiUrl}/login`, data)
       .then((response) => {
         setToken(response.data.token);
         setRoles(response.data.roles);

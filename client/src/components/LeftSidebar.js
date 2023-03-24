@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MenuList from './Menu';
+import avatar from '../assets/avatar.svg'
 
 function LeftSidebar() {
-  const [user, setUser] = useState();
   return (
     <div className="sidebar pb-3">
       <nav className="navbar bg-light navbar-light">
@@ -15,7 +15,7 @@ function LeftSidebar() {
         </Link>
         <div className="d-flex align-items-center ms-4 mb-4">
           <div className="position-relative">
-            <img className="rounded-circle" src="img/user.jpg" alt="" style={{ width: '40px', height: '40px' }} />
+            <img className="rounded-circle" src={avatar} alt="" style={{ width: '40px', height: '40px' }} />
             <div className="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1" />
           </div>
           <div className="ms-3">

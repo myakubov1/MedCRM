@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { check } = require('express-validator');
-const cors = require('cors');
-const MessageController = require('./messages/MessageController');
-const AuthController = require('./users/AuthController');
-const AuthMiddleware = require('./middleware/AuthMiddleware');
+const MessageController = require('./api/messages/MessageController');
+const AuthController = require('./api/users/AuthController');
+const ClientController = require('./api/clients/ClientController')
+// const AuthMiddleware = require('./middleware/AuthMiddleware');
 const RoleMiddleware = require('./middleware/RoleMiddleware');
 
 // messages
@@ -20,5 +20,13 @@ router.post('/registration', [
 ], AuthController.registration);
 router.post('/login', AuthController.login);
 router.get('/users', RoleMiddleware(['ADMIN']), AuthController.getUsers);
+
+// clients
+router.post('/clients', ClientController.create);
+router.get('/clients', ClientController.getAll);
+router.get('/clients/:id', ClientController.getById);
+router.put('/clients', ClientController.update);
+router.delete('/clients/:id', ClientController.delete);
+
 
 module.exports = router;
