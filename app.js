@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const router = require('./router.js');
-const prouter = require('./prouter.js');
+const publicRouter = require('./routers/publicRouter.js');
+const privateRouter = require('./routers/privateRouter.js');
 const AuthMiddleware = require('./middleware/AuthMiddleware');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use('/api', router);
-app.use('/api/protected', AuthMiddleware, prouter);
+app.use('/public', publicRouter);
+app.use('/private', AuthMiddleware, privateRouter);
 
 dotenv.config();
 

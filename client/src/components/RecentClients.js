@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { ApiUrl } from '../api';
+import { ApiUrlProt } from '../api';
 import Spinner from './Spinner';
 
 function RecentClients({ page, limit }) {
@@ -10,7 +10,12 @@ function RecentClients({ page, limit }) {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const loadAsyncClients = async () => {
-      await axios.get(`${ApiUrl}/clients-p?page=${page}&limit=${limit}`)
+      await axios.get(`${ApiUrlProt}/clients-p/`, {
+        params: {
+          page,
+          limit,
+        },
+      })
         .then((response) => {
           setClients(response.data.clients);
         })

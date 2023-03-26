@@ -19,5 +19,6 @@ module.exports = {
     'react/prop-types': 'off',
     'no-unused-vars': 'off',
     'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };

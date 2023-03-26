@@ -32,10 +32,10 @@ class TaskController {
   }
 
   async getByUser(req, res) {
-    console.log('getByUser');
+    console.log('getByUser Tasks');
     const { user } = req.query;
     try {
-      const task = await Task.find(user);
+      const task = await Task.find({ user });
       return res.json(task);
     } catch (e) {
       res.status(500).json(e.message);

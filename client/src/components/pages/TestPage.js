@@ -1,6 +1,12 @@
+import ToDoList from '../ToDoList';
+import Messages from '../Messages';
+
 function TestPage() {
   return (
-    <div>123</div>
+      <>
+    <ToDoList/>
+      <Messages/>
+      </>
   );
 }
 

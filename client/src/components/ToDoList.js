@@ -10,14 +10,14 @@ function ToDoList() {
 
   useEffect(() => {
     const loadAsyncTasks = async () => {
-      await axios.get(`${ApiUrlProt}/tasks/`, {
+      await axios.get(`${ApiUrlProt}/tasks-u/`, {
         params: {
           user: 'Max',
         },
-      }).then((response) => {
-        console.log(response.data);
-        setTasks(response.data);
       })
+        .then((response) => {
+          setTasks(response.data);
+        })
         .catch((e) => {
           setError(e);
           console.log(e);
@@ -31,7 +31,7 @@ function ToDoList() {
   }, []);
 
   const addTask = async () => {
-    await axios.post(`${ApiUrl}/tasks`, {
+    await axios.post(`${ApiUrlProt}/tasks`, {
       value: 'Make toDOlist',
       isCompleted: false,
       user: 'Max',
@@ -65,7 +65,7 @@ function ToDoList() {
                         Add
                     </button>
                 </div>
-                {loaded ? tasks.map((task) => <ToDo key={task._id} value={task.value} checked={task.isCompleted}/>) : null}
+                {loaded ? tasks?.map((task) => <ToDo key={task._id} value={task.value} checked={task.isCompleted}/>) : null}
             </div>
         </div>
   );

@@ -11,15 +11,18 @@ class MessageController {
   }
 
   async getAll(req, res) {
+    console.log('getAll Messages');
+    const { destination } = req.query;
     try {
-      const messages = await Message.find();
+      const messages = await Message.find({ destination });
       return res.status(200).json(messages);
     } catch (e) {
-      res.status(500).json(e);
+      res.status(500).json(e.message);
     }
   }
 
   async getById(req, res) {
+    console.log('getById Messages');
     try {
       const { id } = req.params;
       const message = await Message.findById(id);
