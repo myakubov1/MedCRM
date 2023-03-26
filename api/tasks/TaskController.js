@@ -11,10 +11,11 @@ class TaskController {
   }
 
   async getAll(req, res) {
-    console.log('getAll');
+    console.log('getAll Tasks');
+    const { user } = req.query;
     try {
-      const tasks = await Task.find();
-      return res.status(200).json(tasks);
+      const task = await Task.find({ user });
+      return res.json(task);
     } catch (e) {
       res.status(500).json(e.message);
     }
@@ -25,17 +26,6 @@ class TaskController {
     try {
       const { id } = req.params;
       const task = await Task.findById(id);
-      return res.json(task);
-    } catch (e) {
-      res.status(500).json(e.message);
-    }
-  }
-
-  async getByUser(req, res) {
-    console.log('getByUser Tasks');
-    const { user } = req.query;
-    try {
-      const task = await Task.find({ user });
       return res.json(task);
     } catch (e) {
       res.status(500).json(e.message);

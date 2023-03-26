@@ -22,7 +22,6 @@ privateRouter.delete('/clients/:id', ClientController.delete);
 privateRouter.post('/tasks', TaskController.create);
 privateRouter.get('/tasks', TaskController.getAll);
 privateRouter.get('/tasks/:id', TaskController.getById);
-privateRouter.get('/tasks-u', TaskController.getByUser);
 privateRouter.put('/tasks', TaskController.update);
 privateRouter.delete('/tasks/:id', TaskController.delete);
 

@@ -11,7 +11,6 @@ module.exports = function (req, res, next) {
       return res.status(403).json({ message: 'Пользователь не авторизован' });
     }
     req.user = jwt.verify(token, process.env.SECRET);
-
     next();
   } catch (e) {
     console.log(e);

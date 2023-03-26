@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { ApiUrl, ApiUrlProt } from '../api';
+import jwtDecode from 'jwt-decode';
+import { ApiUrlProt } from '../api';
 
 function ToDoList() {
   const [tasks, setTasks] = useState(null);
@@ -10,9 +11,9 @@ function ToDoList() {
 
   useEffect(() => {
     const loadAsyncTasks = async () => {
-      await axios.get(`${ApiUrlProt}/tasks-u/`, {
+      await axios.get(`${ApiUrlProt}/tasks/`, {
         params: {
-          user: 'Max',
+          user: jwtDecode(sessionStorage.getItem('token')).username,
         },
       })
         .then((response) => {
