@@ -37,7 +37,7 @@ function Messages() {
           <h6 className="mb-0">Messages</h6>
           <a href="">Show All</a>
         </div>
-        {loaded ? messages.map((message) => <Message key={message._id} author={message.author} content={message.content} date={message.date} />) : null}
+        {loaded ? messages?.map((message) => <Message key={message._id} author={message.author} content={message.content} date={message.date} />) : null}
       </div>
     </div>
   );

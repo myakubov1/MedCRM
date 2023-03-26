@@ -1,13 +1,17 @@
 import '../../App.css';
 import { Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 import Dashboard from '../pages/Dashboard';
 import TestPage from '../pages/TestPage';
 import Login from '../pages/Login';
 import Layout from './Layout';
 import PrivateRoute from '../../middleware/PrivateRoute';
 import Clients from '../pages/Clients';
+import { useAuth } from '../../hooks/useAuth';
 
 function App() {
+  const { token } = useAuth();
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   return (
     <Routes>
       <Route path="login" element={<Login />} />

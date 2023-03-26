@@ -3,8 +3,9 @@ const { check } = require('express-validator');
 const MessageController = require('./api/messages/MessageController');
 const AuthController = require('./api/users/AuthController');
 const ClientController = require('./api/clients/ClientController');
-// const AuthMiddleware = require('./middleware/AuthMiddleware');
+const TaskController = require('./api/tasks/TaskController');
 const RoleMiddleware = require('./middleware/RoleMiddleware');
+
 // messages
 router.post('/messages', MessageController.create);
 router.get('/messages', MessageController.getAll);
@@ -27,5 +28,12 @@ router.get('/clients/:id', ClientController.getById);
 router.get('/clients-p', ClientController.getWithPagination);
 router.put('/clients', ClientController.update);
 router.delete('/clients/:id', ClientController.delete);
+
+// tasks
+router.post('/tasks', TaskController.create);
+router.get('/tasks', TaskController.getAll);
+router.get('/tasks/:id', TaskController.getById);
+router.put('/tasks', TaskController.update);
+router.delete('/tasks/:id', TaskController.delete);
 
 module.exports = router;

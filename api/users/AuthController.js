@@ -4,10 +4,11 @@ const { validationResult } = require('express-validator');
 const Role = require('./Role');
 const User = require('./User');
 
-const generateAccessToken = (id, roles) => {
+const generateAccessToken = (id, roles, username) => {
   const payload = {
     id,
     roles,
+    username,
   };
   return jwt.sign(payload, process.env.SECRET, { expiresIn: '24h' });
 };
@@ -46,8 +47,8 @@ class AuthController {
       if (!validPassword) {
         return res.status(400).json({ message: 'Введен неверный пароль' });
       }
-      const token = generateAccessToken(user._id, user.roles);
-      return res.json({ token, roles: user.roles });
+      const token = generateAccessToken(user._id, user.roles, user.username);
+      return res.json({ token, roles: user.roles, userid: user._id });
     } catch (e) {
       console.log(e);
       res.status(400).json({ message: 'Login error' });

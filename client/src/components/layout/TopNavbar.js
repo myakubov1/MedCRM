@@ -8,10 +8,10 @@ function TopNavbar() {
   };
   return (
     <nav className="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-      <a href="client/src/components/layout/TopNavbar#" className="navbar-brand d-flex d-lg-none me-4">
+      <a href="#" className="navbar-brand d-flex d-lg-none me-4">
         <h2 className="text-primary mb-0"><i className="fa fa-hashtag" /></h2>
       </a>
-      <a href="client/src/components/layout/TopNavbar#" className="sidebar-toggler flex-shrink-0">
+      <a href="#" className="sidebar-toggler flex-shrink-0">
         <i className="fa fa-bars" />
       </a>
       <SearchBar />

@@ -16,7 +16,7 @@ function Dashboard() {
         </div>
       </div>
       <div className="container-fluid py-4 px-4">
-          <RecentClients/>
+          <RecentClients page={1} limit={5}/>
       </div>
       <div className="container-fluid py-4 px-4">
         <div className="row g-4">

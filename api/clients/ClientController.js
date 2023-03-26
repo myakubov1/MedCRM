@@ -30,9 +30,7 @@ class ClientController {
   }
 
   async getWithPagination(req, res) {
-    // destructure page and limit and set default values
     const { page = 1, limit = 10 } = req.query;
-
     try {
       const clients = await Client.find()
         .limit(limit * 1)
@@ -46,8 +44,8 @@ class ClientController {
         totalPages: Math.ceil(count / limit),
         currentPage: page,
       });
-    } catch (err) {
-      console.error(err.message);
+    } catch (e) {
+      console.error(e.message);
     }
   }
 

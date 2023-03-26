@@ -9,11 +9,7 @@ function Login() {
   const handleSubmit = async () => {
     login({ username, password });
   };
-  const showError = () => (
-    <div className="alert alert-danger" role="alert">
-      {error}
-    </div>
-  );
+
   return (
     <div>
       <div className="container-xxl position-relative bg-white d-flex p-0">

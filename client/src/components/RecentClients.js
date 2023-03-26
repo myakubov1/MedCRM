@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ApiUrl } from '../api';
+import Spinner from './Spinner';
 
-function RecentClients() {
+function RecentClients({ page, limit }) {
   const [clients, setClients] = useState(null);
   const [error, setError] = useState('');
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const loadAsyncClients = async () => {
-      console.log(process.env);
-      await axios.get(`${ApiUrl}/clients-p?page=1&limit=5`)
+      await axios.get(`${ApiUrl}/clients-p?page=${page}&limit=${limit}`)
         .then((response) => {
           setClients(response.data.clients);
         })
@@ -33,7 +33,7 @@ function RecentClients() {
                     <a href="">Show All</a>
                 </div>
                 <div className="table-responsive">
-                    <table className="table text-start align-middle table-bordered table-hover mb-0">
+                    {loaded ? <table className="table text-start align-middle table-bordered table-hover mb-0">
                         <thead>
                         <tr className="text-dark">
                             <th scope="col">Date</th>
@@ -47,7 +47,7 @@ function RecentClients() {
                         </tr>
                         </thead>
                         <tbody>
-                        {loaded ? clients.map((client) => <Client
+                        {clients?.map((client) => <Client
                             key={client._id}
                             name={client.name}
                             surname={client.surname}
@@ -55,9 +55,9 @@ function RecentClients() {
                             gender={client.gender}
                             age={client.age}
                             address={client.address}
-                            date={client.date}/>) : null}
+                            date={client.date}/>)}
                         </tbody>
-                    </table>
+                    </table> : <Spinner/>}
                 </div>
             </div>
   );

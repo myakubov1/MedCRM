@@ -10,8 +10,9 @@ const UserContext = createContext();
 export function UserProvider({ children }) {
   const navigate = useNavigate();
   const [token, setToken] = useState(sessionStorage.getItem('token'));
-  const [roles, setRoles] = useState('');
+  const [roles, setRoles] = useState(null);
   const [error, setError] = useState(null);
+  const [userid, setUserid] = useState(null);
   const login = async ({ username, password }) => {
     const data = {
       username: username.toLowerCase(),
@@ -22,6 +23,7 @@ export function UserProvider({ children }) {
       .then((response) => {
         setToken(response.data.token);
         setRoles(response.data.roles);
+        setUserid(response.data.userid);
         sessionStorage.setItem('token', response.data.token);
       })
       .catch((e) => {
@@ -32,6 +34,9 @@ export function UserProvider({ children }) {
   };
 
   const logout = () => {
+    setToken(null);
+    setRoles(null);
+    setUserid(null);
     sessionStorage.removeItem('token');
     navigate('/login');
   };
